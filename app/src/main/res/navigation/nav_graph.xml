@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/authenticationFragment">
+
+    <fragment
+        android:id="@+id/authenticationFragment"
+        android:name="com.example.shoppinglistnew.presentation.screens.AuthenticationFragment"
+        android:label="Authentication" >
+        <action
+            android:id="@+id/action_authenticationFragment_to_myShopListsFragment"
+            app:destination="@id/myShopListsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/myShopListsFragment"
+        android:name="com.example.shoppinglistnew.presentation.screens.MyShopListsFragment"
+        android:label="My lists" >
+        <action
+            android:id="@+id/action_myShopListsFragment_to_shopListFragment"
+            app:destination="@id/shopListFragment" />
+        <action
+            android:id="@+id/action_myShopListsFragment_to_editShopListFragment"
+            app:destination="@id/editShopListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/shopListFragment"
+        android:name="com.example.shoppinglistnew.presentation.screens.ShopListFragment"
+        android:label="{listName}" >
+        <argument
+            android:name="listId"
+            app:argType="integer" />
+        <argument
+            android:name="listName"
+            app:argType="string" />
+    </fragment>
+    <dialog
+        android:id="@+id/editShopListFragment"
+        android:name="com.example.shoppinglistnew.presentation.screens.EditShopListFragment"
+        android:label="EditShopListFragment" >
+        <action
+            android:id="@+id/action_editShopListFragment_to_shopListFragment"
+            app:destination="@id/shopListFragment" />
+    </dialog>
+</navigation>
